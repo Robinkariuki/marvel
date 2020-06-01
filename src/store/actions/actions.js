@@ -4,7 +4,7 @@ import  {Base_url,api_key,ts,hash} from '../marvelConfig';
 export const fetchPending=()=>{
     return{
         type : FETCH_COMICS_PENDING,
-        Comics
+        
     }
 }
 
@@ -16,10 +16,10 @@ export const fetchComics =(Comics)=>{
     }
 }
 
-export const fetchError =(Error)=>{
+export const fetchError =(error)=>{
     return{
         type : FETCH_COMICS_ERROR,
-        Error
+        error
     }
 }
 
@@ -28,18 +28,18 @@ export const fetchError =(Error)=>{
 
 function fetchComics(){
     return dispatch=>{
-        dispatch(fetchComicsPending());
+        dispatch(fetchPending());
         fetch(`${Base_url}?ts=${ts}&apikey=${api_key}&hash=${hash}`)
         .then(res=>res.json())
-        .then(comics=> {
-            if(comics.error){
-                throw(comics.error);
+        .then(results=> {
+            if(results.error){
+                throw(results.error);
             }
-            dispatch(fetchComicsSuccess(comics.data.results));
-            return comics.data.results;
+            dispatch(fetchComics(results.data.results));
+            return results.data.results;
         })
         .catch(error=>{
-            dispatch(fetchComicsError(error));
+            dispatch(fetchError(error));
             
         })
     }
