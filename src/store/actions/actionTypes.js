@@ -1,0 +1,3 @@
+export const FETCH_COMICS_PENDING = 'FETCH_Comics_PENDING ';
+export const FETCH_COMICS_SUCCESS = 'FETCH_Comics_SUCCESS';
+export const FETCH_COMICS_ERROR = 'FETCH_Comics_ERROR';
