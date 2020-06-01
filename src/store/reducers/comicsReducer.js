@@ -2,7 +2,7 @@ import {FETCH_COMICS_PENDING,FETCH_COMICS_SUCCESS,FETCH_COMICS_ERROR} from '../a
 
 const initialState ={
     pending: false,
-    comics: [],
+    characters: [],
     error: null
 }
 
@@ -15,7 +15,7 @@ const comicsReducer =(state=initialState,action)=>{
             return{
                 ...state,
                 pending:false,
-                comics:action.results
+                characters:action.Comics
             }
         case FETCH_COMICS_PENDING:
             return{

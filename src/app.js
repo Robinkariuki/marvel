@@ -2,8 +2,9 @@ import React from 'react';
 import Home from './component/home/home';
 import { connect } from 'react-redux';
 
-const App=()=>{
-    console.log(this.props.characters)
+
+const App=(props)=>{
+    console.log(props.state)
     return(<div>
         <Home/>
     </div>)
@@ -14,7 +15,7 @@ const App=()=>{
 
 
 const mapStateToProps=state=>({
-    characters:state.results
+    state
 })
 
 export default connect(mapStateToProps)(App)

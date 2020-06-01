@@ -9,7 +9,7 @@ export const fetchPending=()=>{
 }
 
 
-export const fetchComics =(Comics)=>{
+export const fetchSucessComics =(Comics)=>{
     return{
         type : FETCH_COMICS_SUCCESS,
         Comics
@@ -35,7 +35,7 @@ function fetchComics(){
             if(results.error){
                 throw(results.error);
             }
-            dispatch(fetchComics(results.data.results));
+            dispatch(fetchSucessComics(results.data.results));
             return results.data.results;
         })
         .catch(error=>{
