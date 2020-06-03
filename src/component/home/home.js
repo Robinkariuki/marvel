@@ -3,6 +3,7 @@ import Navbar from '../navbar/navbar';
 import Search from '../search/seacrh';
 import fetchCharacters from '../../store/actions/actions'
 import {connect} from 'react-redux'
+import Grid from '../imageGrid/grid';
 class Home extends Component{
      
     componentDidMount(){
@@ -13,6 +14,7 @@ class Home extends Component{
         return(<div>
             <Navbar/>
             <Search/>
+            <Grid characters={this.props.state.characters}/>
         </div>
         )
     }

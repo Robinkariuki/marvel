@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const App=(props)=>{
     console.log(props.state)
     return(<div>
-        <Home/>
+        <Home state={props.state}/>
     </div>)
 }
 
